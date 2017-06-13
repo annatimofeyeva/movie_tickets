@@ -27,11 +27,12 @@ $(document).ready(function() {
       } else {
         this.cost += 3;
       }
+      return this.cost
     };
 
     var newCost = new Ticket(inputtedMovieName, inputtedMovieTime, inputtedAge, 0);
 
-    $("div#results").append("<p"> + newCost.calculateCost() + "</p>");
+  //  $("div#results").append("<p"> + newCost.calculateCost() + "</p>");
     console.log(newCost);
     console.log(newCost.calculateCost());
 
