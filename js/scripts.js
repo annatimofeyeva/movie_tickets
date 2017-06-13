@@ -5,17 +5,13 @@ function Ticket(movieName, time, age, cost) {
   this.age = age;
   this.cost = cost;
 }
-
 // user interface logic
 $(document).ready(function() {
   $("form").submit(function(event) {
     event.preventDefault();
-
-
     var inputtedMovieName = $("input#name").val();
     var inputtedMovieTime = $("select#time").val();
     var inputtedAge = $("select#age").val();
-
     Ticket.prototype.calculateCost = function() {
       if (inputtedMovieTime === "morning") {
         this.cost += 3;
@@ -29,14 +25,7 @@ $(document).ready(function() {
       }
       return this.cost
     };
-
     var newCost = new Ticket(inputtedMovieName, inputtedMovieTime, inputtedAge, 0);
-
-  //  $("div#results").append("<p"> + newCost.calculateCost() + "</p>");
-    console.log(newCost);
-    console.log(newCost.calculateCost());
-
-
-
-    });
+    $("#results").append("<h2> Your cost is: $" + newCost.calculateCost() + "</h2>");
   });
+});
