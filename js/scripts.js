@@ -9,6 +9,7 @@ function Ticket(movieName, time, age, cost) {
 $(document).ready(function() {
   $("form").submit(function(event) {
     event.preventDefault();
+    $("#results").empty();
     var inputtedMovieName = $("input#name").val();
     var inputtedMovieTime = $("select#time").val();
     var inputtedAge = $("select#age").val();
@@ -28,4 +29,7 @@ $(document).ready(function() {
     var newCost = new Ticket(inputtedMovieName, inputtedMovieTime, inputtedAge, 0);
     $("#results").append("<h2> Your cost is: $" + newCost.calculateCost() + "</h2>");
   });
+    function resetFields() {
+      $("input#name").val("");
+    }
 });
